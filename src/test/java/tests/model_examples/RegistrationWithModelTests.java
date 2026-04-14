@@ -19,6 +19,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Disabled
+@Deprecated
 public class RegistrationWithModelTests {
 
     String username;
@@ -32,6 +33,7 @@ public class RegistrationWithModelTests {
         password = faker.name().fullName();
     }
 
+    @Disabled
     @Test
     public void successfulWithRecordRegistrationTest() {
 
@@ -53,6 +55,7 @@ public class RegistrationWithModelTests {
 
     }
 
+    @Disabled
     @Test
     public void successfulWithLombokRegistrationTest() {
 
@@ -77,6 +80,7 @@ public class RegistrationWithModelTests {
     }
 
 
+    @Disabled
     @Test
     public void successfulWithPojoRegistrationTest() {
 
@@ -100,6 +104,7 @@ public class RegistrationWithModelTests {
 
     }
 
+    @Disabled
     @Test
     public void invalidUsername400Test() {
 
@@ -121,6 +126,8 @@ public class RegistrationWithModelTests {
     }
 
 
+
+    @Disabled
     @Test
     public void existingUser400Test() {
 
@@ -154,11 +161,12 @@ public class RegistrationWithModelTests {
                 .as(ExistingUser400ResponseRecordsModel.class);
 
         String expectedError = "A user with that username already exists.";
-        assertEquals(expectedError, existingUser400ResponseRecordsModel.username().getFirst());
+        assertEquals(expectedError, existingUser400ResponseRecordsModel.username().get(0));
 
     }
 
 
+    @Disabled
     @Test
     public void negativeRegistration500Test() {
 
@@ -177,6 +185,8 @@ public class RegistrationWithModelTests {
 
     }
 
+
+    @Disabled
     @Test
     public void unsupportedMediaType415Test() {
 
